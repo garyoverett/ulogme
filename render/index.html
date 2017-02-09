@@ -29,6 +29,14 @@
 
     // renders pie chart showing distribution of time spent into #piechart
     function createPieChart(es, etypes) {
+	for(var i = 0; i < es.length; i++)  {
+	    if (es[i].m == "Locked Screen") {
+		es.splice(i,1);
+		i--;
+	    }
+	};
+	var index = etypes.indexOf("Locked Screen");
+	etypes.splice(index, 1);
 
       // count up the total amount of time spent in all windows
       var dtall = 0;
